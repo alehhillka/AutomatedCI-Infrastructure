@@ -1,0 +1,15 @@
+---
+# tasks file for clamav_role
+- name: Install ClamAV package
+  yum:
+    name: clamav
+    state: present
+
+- name: Enable and start ClamAV services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - clamav-clamonacc.service
+    - clamav-freshclam.service

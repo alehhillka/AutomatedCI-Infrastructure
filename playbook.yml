@@ -1,0 +1,6 @@
+---
+- name: Install ClamAV role on EC2 instances
+  hosts: all
+  become: true
+  roles:
+    - name: clamav_role
